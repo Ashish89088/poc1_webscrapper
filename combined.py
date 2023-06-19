@@ -3,11 +3,14 @@ from bs4 import BeautifulSoup
 import requests
 import random
 from utils import userAgent
-from amazon import *
-from flipkart import *
-from ticker import *
+from utils.amazon import *
+from utils.flipkart import *
+# from utils.ticker import tickerDataScrapper
+from utils.compare import *
+
 
 app = Flask(__name__)
+
 
 @app.route("/", methods=["GET", "POST"])
 def index() :
@@ -25,10 +28,15 @@ def index() :
             if flipkart_data_json is not None :
                 return render_template('product.html', product_details=flipkart_data_json)
         
-        elif website_choice == "Ticker" :
-            ticker_data_json = tickerDataScrapper(product_type)
-            if ticker_data_json is not None :
-                return render_template('productTicker.html', product_details=ticker_data_json)
+        elif website_choice == "Compare" :
+            compare_data_json = compareDataScrapper(product_type, count)
+            if compare_data_json is not None :
+                return render_template('product.html', product_details=compare_data_json)
+
+        # elif website_choice == "Ticker" :
+        #     ticker_data_json = tickerDataScrapper(product_type)
+        #     if ticker_data_json is not None :
+                # return render_template('productTicker.html', product_details=ticker_data_json)
             
     return render_template("index.html")
 

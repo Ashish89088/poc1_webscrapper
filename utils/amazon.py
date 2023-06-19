@@ -60,7 +60,7 @@ def amazonDataScrapper(prod_type, prod_count) :
     
     # Code calling begins here......
     headers = {
-        'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'User-Agent' : 'http://127.0.0.1:5000',
         'Accept-Language' : 'en-US'
     }
     url = f"https://www.amazon.com/s?k={prod_type}"

@@ -12,16 +12,26 @@
         
         .container {
             max-width: 800px;
+            height: 550px;
             margin: 0 auto;
-            padding: 40px;
-            background-color: #ffffff;
+            padding: 10px 40px 40px 40px;
+            /* background: linear-gradient(#333 5%,#141416 5%, rgb(116, 116, 140),#1111); */
+            /* font-family: cursive; */
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10rem rgba(0, 0, 0, 0.1);
         }
         
-        h1 {
-            color: #333333;
+        h1 .p-search {
+            color: #333;
+            font-size: 3rem;
             text-align: center;
+            text-shadow: 3px 2px lightgray;
+            transition-property: font-size, border;
+            transition-duration: 2s;
+        }
+
+        h1 .p-search:hover {
+            font-size: 3.5rem;
         }
         
         form {
@@ -33,6 +43,14 @@
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
+            font-size: 2rem;
+            color: #333;
+            transition: font-size 2s;
+            /* border: white 2px solid; */
+        }
+
+        label:hover {
+            font-size: 2.5rem;
         }
         
         input[type="text"],
@@ -41,25 +59,32 @@
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #cccccc;
+            box-shadow: 3px 3px lightgray;
         }
         
         button[type="submit"] {
             padding: 10px 20px;
-            background-color: #333333;
+            background-color: #333;
             color: #ffffff;
+            font-size: larger;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            /* transition: background-color 2s; */
         }
         
         button[type="submit"]:hover {
             background-color: #555555;
+            
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Product Search</h1>
+        <h1>
+            <div class="p-search">Product Search</div>
+        </h1>
+        <br>
         <form method="POST" action="/">
             <label for="productType">Product Type:</label>
             <input type="text" id="productType" name="productType" required><br><br>
@@ -69,10 +94,12 @@
 
             <label for="websiteChoice">Website Choice:</label>
             <input type="text" id="websiteChoice" name="websiteChoice" required><br><br>
+            <br>
 
             <button type="submit">Get Details</button>
         </form>
     </div>
 </body>
 </html>
+
 
